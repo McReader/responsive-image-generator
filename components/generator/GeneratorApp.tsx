@@ -78,72 +78,60 @@ export function GeneratorApp() {
   }, [images.length, settings.selectedBreakpoints.length]);
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-8 sm:px-6 lg:px-8">
-      <header className="mb-8">
-        <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-          Responsive Image Generator
-        </h1>
-        <p className="mt-2 max-w-2xl text-zinc-600 dark:text-zinc-400">
-          Generate responsive image variants in your browser with WebAssembly. Nothing
-          is uploaded — processing stays on your device.
-        </p>
-      </header>
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.9fr)]">
+      <div className="min-w-0 space-y-6">
+        <UploadZone
+          images={images}
+          onAddImages={handleAddImages}
+          registerUrl={register}
+        />
+        <ImagePreviewGrid images={images} onRemove={handleRemoveImage} />
+        <ResultsPanel
+          variants={variants}
+          jobs={jobs}
+          isProcessing={isProcessing}
+          progress={progress}
+          formatBytes={formatBytes}
+        />
+        <HtmlSnippetPanel variants={variants} />
+      </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.9fr)]">
-        <div className="min-w-0 space-y-6">
-          <UploadZone
-            images={images}
-            onAddImages={handleAddImages}
-            registerUrl={register}
-          />
-          <ImagePreviewGrid images={images} onRemove={handleRemoveImage} />
-          <ResultsPanel
-            variants={variants}
-            jobs={jobs}
-            isProcessing={isProcessing}
-            progress={progress}
-            formatBytes={formatBytes}
-          />
-          <HtmlSnippetPanel variants={variants} />
-        </div>
+      <div className="space-y-6">
+        <SettingsPanel
+          settings={settings}
+          images={images}
+          isProcessing={isProcessing}
+          canGenerate={canGenerate}
+          onSettingsChange={setSettings}
+          onGenerate={handleGenerate}
+          onCancel={cancelProcessing}
+        />
 
-        <div className="space-y-6">
-          <SettingsPanel
-            settings={settings}
-            images={images}
-            isProcessing={isProcessing}
-            canGenerate={canGenerate}
-            onSettingsChange={setSettings}
-            onGenerate={handleGenerate}
-            onCancel={cancelProcessing}
-          />
-
-          <section className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
-            <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
-              Session
-            </h2>
-            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{summaryText}</p>
-            <div className="mt-4 flex flex-col gap-3">
-              {hasResults && (
-                <button
-                  type="button"
-                  onClick={() => void downloadAllVariantsAsZip(variants)}
-                  className="inline-flex h-10 items-center justify-center rounded-xl bg-zinc-900 px-4 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
-                >
-                  Download all as ZIP
-                </button>
-              )}
+        <section className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+          <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+            Session
+          </h2>
+          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{summaryText}</p>
+          <div className="mt-4 flex flex-col gap-3">
+            {hasResults && (
               <button
                 type="button"
-                onClick={handleClearAll}
-                disabled={images.length === 0 && !hasResults}
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-zinc-300 px-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+                onClick={() => void downloadAllVariantsAsZip(variants)}
+                className="inline-flex h-10 items-center justify-center rounded-xl bg-zinc-900 px-4 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
               >
-                Clear all
+                Download all as ZIP
               </button>
-            </div>
-          </section>
-        </div>
+            )}
+            <button
+              type="button"
+              onClick={handleClearAll}
+              disabled={images.length === 0 && !hasResults}
+              className="inline-flex h-10 items-center justify-center rounded-xl border border-zinc-300 px-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+            >
+              Clear all
+            </button>
+          </div>
+        </section>
       </div>
     </div>
   );
