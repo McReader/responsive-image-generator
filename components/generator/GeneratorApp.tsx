@@ -89,8 +89,8 @@ export function GeneratorApp() {
         </p>
       </header>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.4fr_0.9fr]">
-        <div className="space-y-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.9fr)]">
+        <div className="min-w-0 space-y-6">
           <UploadZone
             images={images}
             onAddImages={handleAddImages}
