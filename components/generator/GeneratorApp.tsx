@@ -97,7 +97,7 @@ export function GeneratorApp() {
         />
 
         <div className="lg:hidden">
-          <SettingsPanel {...settingsPanelProps} />
+          <SettingsPanel {...settingsPanelProps} collapsible />
         </div>
 
         <ImagePreviewGrid images={images} onRemove={handleRemoveImage} />
