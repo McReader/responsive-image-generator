@@ -77,14 +77,29 @@ export function GeneratorApp() {
     return `${images.length} image(s) ready · ${settings.selectedBreakpoints.length} breakpoint(s) selected`;
   }, [images.length, settings.selectedBreakpoints.length]);
 
+  const settingsPanelProps = {
+    settings,
+    images,
+    isProcessing,
+    canGenerate,
+    onSettingsChange: setSettings,
+    onGenerate: handleGenerate,
+    onCancel: cancelProcessing,
+  };
+
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.9fr)]">
-      <div className="min-w-0 space-y-6">
+    <div className="grid grid-cols-1 gap-6 pb-36 lg:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.9fr)] lg:pb-0">
+      <div className="space-y-6">
         <UploadZone
           images={images}
           onAddImages={handleAddImages}
           registerUrl={register}
         />
+
+        <div className="lg:hidden">
+          <SettingsPanel {...settingsPanelProps} />
+        </div>
+
         <ImagePreviewGrid images={images} onRemove={handleRemoveImage} />
         <ResultsPanel
           variants={variants}
@@ -97,27 +112,21 @@ export function GeneratorApp() {
       </div>
 
       <div className="space-y-6">
-        <SettingsPanel
-          settings={settings}
-          images={images}
-          isProcessing={isProcessing}
-          canGenerate={canGenerate}
-          onSettingsChange={setSettings}
-          onGenerate={handleGenerate}
-          onCancel={cancelProcessing}
-        />
+        <div className="hidden lg:block">
+          <SettingsPanel {...settingsPanelProps} />
+        </div>
 
-        <section className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+        <section className="fixed inset-x-4 bottom-4 z-50 rounded-2xl border border-zinc-200 bg-white/95 p-4 shadow-lg backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/95 lg:static lg:inset-auto lg:bg-white lg:p-5 lg:shadow-none lg:backdrop-blur-none dark:lg:bg-zinc-900">
           <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
             Session
           </h2>
-          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{summaryText}</p>
-          <div className="mt-4 flex flex-col gap-3">
+          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400 lg:mt-2">{summaryText}</p>
+          <div className="mt-3 flex flex-row gap-2 lg:mt-4 lg:flex-col lg:gap-3">
             {hasResults && (
               <button
                 type="button"
                 onClick={() => void downloadAllVariantsAsZip(variants)}
-                className="inline-flex h-10 items-center justify-center rounded-xl bg-zinc-900 px-4 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+                className="inline-flex h-10 flex-1 items-center justify-center rounded-xl bg-zinc-900 px-4 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
               >
                 Download all as ZIP
               </button>
@@ -126,7 +135,7 @@ export function GeneratorApp() {
               type="button"
               onClick={handleClearAll}
               disabled={images.length === 0 && !hasResults}
-              className="inline-flex h-10 items-center justify-center rounded-xl border border-zinc-300 px-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+              className="inline-flex h-10 flex-1 items-center justify-center rounded-xl border border-zinc-300 px-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800 lg:flex-none"
             >
               Clear all
             </button>
