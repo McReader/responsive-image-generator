@@ -1,5 +1,4 @@
-"use client";
-
+import { BuyMeACoffeeButton } from "./BuyMeACoffeeButton";
 import { getBaseName } from "@/lib/breakpoints";
 import { downloadSourceVariantsAsZip } from "@/lib/download";
 import type { ImageVariant, ProcessJob } from "@/lib/types";
@@ -27,6 +26,7 @@ export function ResultsPanel({
   }, new Map());
 
   const failedJobs = jobs.filter((job) => job.status === "error");
+  const hasResults = variants.length > 0;
 
   if (variants.length === 0 && !isProcessing && failedJobs.length === 0) {
     return (
@@ -49,6 +49,7 @@ export function ResultsPanel({
             </p>
           )}
         </div>
+        {hasResults && <BuyMeACoffeeButton />}
       </div>
 
       {isProcessing && (
