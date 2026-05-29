@@ -1,13 +1,13 @@
-"use client";
-
-import type { SourceImage } from "@/lib/types";
+import type {SourceImage} from "@/lib/types";
 
 interface ImagePreviewGridProps {
   images: SourceImage[];
+  onClearAll: () => void;
   onRemove: (id: string) => void;
+  selectedBreakpointsCount?: number;
 }
 
-export function ImagePreviewGrid({ images, onRemove }: ImagePreviewGridProps) {
+export function ImagePreviewGrid({ images, onClearAll, onRemove, selectedBreakpointsCount = 0 }: ImagePreviewGridProps) {
   if (images.length === 0) {
     return (
       <div className="rounded-2xl border border-zinc-200 bg-white p-6 text-sm text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
@@ -18,11 +18,21 @@ export function ImagePreviewGrid({ images, onRemove }: ImagePreviewGridProps) {
 
   return (
     <section className="rounded-2xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
-      <div className="mb-3 flex items-center justify-between">
+      <div className="flex items-center justify-between">
         <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
           Uploaded images ({images.length})
         </h2>
+
+        <button
+          type="button"
+          onClick={onClearAll}
+          className="text-xs font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          Clear All
+        </button>
       </div>
+
+      <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400 mt-1">{selectedBreakpointsCount} breakpoint(s) selected</p>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {images.map((image) => (
