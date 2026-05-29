@@ -24,7 +24,7 @@ export function FormatSelector({ format, onChange }: FormatSelectorProps) {
         {FORMAT_OPTIONS.map((option) => (
           <label
             key={option.value}
-            className={`flex cursor-pointer items-center justify-center rounded-lg border px-3 py-2 text-sm font-medium ${
+            className={`flex cursor-pointer items-center justify-center rounded-md border px-3 py-2 text-sm font-medium ${
               format === option.value
                 ? "border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
                 : "border-zinc-200 text-zinc-700 hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"

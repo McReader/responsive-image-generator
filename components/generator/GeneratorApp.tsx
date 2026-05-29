@@ -126,7 +126,7 @@ export function GeneratorApp() {
               <button
                 type="button"
                 onClick={() => void downloadAllVariantsAsZip(variants)}
-                className="inline-flex h-10 flex-1 items-center justify-center rounded-xl bg-zinc-900 px-4 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+                className="button primary"
               >
                 Download all as ZIP
               </button>
@@ -135,7 +135,7 @@ export function GeneratorApp() {
               type="button"
               onClick={handleClearAll}
               disabled={images.length === 0 && !hasResults}
-              className="inline-flex h-10 flex-1 items-center justify-center rounded-xl border border-zinc-300 px-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800 lg:flex-none"
+              className="button outlined"
             >
               Clear all
             </button>

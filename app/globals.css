@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --button-primary-background: theme(color.zinc.900);
+  --button-primary-foreground: theme(color.white);
+  --button-primary-hover-background: theme(color.zinc.700);
+
+  --button-outlined-border-color: theme(color.zinc.300);
+  --button-outlined-border-color-hover: theme(color.zinc.50);
+  --button-outlined-foreground: theme(color.zinc.700);
 }
 
 @theme inline {
@@ -16,6 +24,14 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    --button-primary-background: theme(color.zinc.100);
+    --button-primary-foreground: theme(color.zinc.900);
+    --button-primary-hover-background: theme(color.zinc.300);
+
+    --button-outlined-border-color: theme(color.zinc.700);
+    --button-outlined-border-color-hover: theme(color.zinc.500);
+    --button-outlined-foreground: theme(color.zinc.200);
   }
 }
 
@@ -23,4 +39,44 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.button {
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+}
+
+.button.primary {
+  background-color: var(--button-primary-background);
+  border-radius: theme(radius.md);
+  color: var(--button-primary-foreground);
+  padding-inline: theme(spacing.4);
+}
+
+.button.primary:hover:not(:disabled) {
+  background-color: var(--button-primary-hover-background);
+}
+
+.button.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button.outlined {
+  border: 1px solid var(--button-outlined-border-color);
+  border-radius: theme(radius.md);
+  color: var(--button-outlined-foreground);
+  padding-inline: theme(spacing.4);
+}
+
+.button.outlined:hover:not(:disabled) {
+  border-color: var(--button-outlined-border-color-hover);
+}
+
+.button.outlined:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

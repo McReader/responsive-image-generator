@@ -88,7 +88,7 @@ export function SettingsPanel({
           type="button"
           disabled={!canGenerate || isProcessing}
           onClick={onGenerate}
-          className="inline-flex h-11 flex-1 items-center justify-center rounded-xl bg-zinc-900 px-4 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+          className="button primary"
         >
           {isProcessing ? "Generating..." : "Generate variants"}
         </button>
@@ -96,7 +96,7 @@ export function SettingsPanel({
           <button
             type="button"
             onClick={onCancel}
-            className="inline-flex h-11 items-center justify-center rounded-xl border border-zinc-300 px-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+            className="button outlined"
           >
             Cancel
           </button>
