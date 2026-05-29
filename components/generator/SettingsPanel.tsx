@@ -7,6 +7,7 @@ import { FormatSelector } from "./FormatSelector";
 import { QualitySlider } from "./QualitySlider";
 
 interface SettingsPanelProps {
+  className?: string;
   settings: GeneratorSettings;
   images: SourceImage[];
   isProcessing: boolean;
@@ -18,6 +19,7 @@ interface SettingsPanelProps {
 }
 
 export function SettingsPanel({
+  className,
   settings,
   images,
   isProcessing,
@@ -27,10 +29,10 @@ export function SettingsPanel({
   onGenerate,
   onCancel,
 }: SettingsPanelProps) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
 
   return (
-    <section className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+    <section className={`rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900 ${className ?? ''}`}>
       {collapsible ? (
         <button
           type="button"

@@ -50,7 +50,7 @@ export function BreakpointSelector({
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+      <div className="flex flex-row flex-wrap gap-2">
         {PRESET_BREAKPOINTS.map((width) => {
           const disabled = width > maxSourceWidth;
           const checked = selectedBreakpoints.includes(width);
@@ -63,7 +63,7 @@ export function BreakpointSelector({
                   ? "Skipped — wider than the largest uploaded image"
                   : undefined
               }
-              className={`flex items-center gap-2 rounded-md border px-3 py-2 text-sm ${
+              className={`flex items-center justify-center gap-2 rounded-md border w-23 py-2 text-sm ${
                 disabled
                   ? "cursor-not-allowed border-zinc-200 text-zinc-400 dark:border-zinc-800 dark:text-zinc-600"
                   : "cursor-pointer border-zinc-200 text-zinc-800 hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500"

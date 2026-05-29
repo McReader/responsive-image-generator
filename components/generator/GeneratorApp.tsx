@@ -87,9 +87,11 @@ export function GeneratorApp() {
           registerUrl={register}
         />
 
-        <div className="lg:hidden">
-          <SettingsPanel {...settingsPanelProps} collapsible/>
-        </div>
+        <SettingsPanel
+          className="lg:hidden"
+          {...settingsPanelProps}
+          collapsible
+        />
 
         <ImagePreviewGrid
           images={images}
@@ -111,9 +113,7 @@ export function GeneratorApp() {
       </div>
 
       <div className="space-y-6">
-        <div className="hidden lg:block">
-          <SettingsPanel {...settingsPanelProps} />
-        </div>
+        <SettingsPanel className="hidden lg:block" {...settingsPanelProps} />
       </div>
     </div>
   );
