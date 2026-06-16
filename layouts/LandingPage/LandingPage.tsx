@@ -53,7 +53,7 @@ export function LandingPage({ content }: LandingPageProps) {
           </div>
 
           <div className={`${styles.toolShell} mt-8`}>
-            <GeneratorApp />
+            <GeneratorApp initialSettings={content.toolDefaults} />
           </div>
         </LandingContainer>
       </LandingSection>

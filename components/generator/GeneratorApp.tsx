@@ -11,7 +11,17 @@ import {ResultsPanel} from "./ResultsPanel";
 import {SettingsPanel} from "./SettingsPanel";
 import {UploadZone} from "./UploadZone";
 
-export function GeneratorApp() {
+const DEFAULT_SETTINGS: GeneratorSettings = {
+  selectedBreakpoints: DEFAULT_SELECTED_BREAKPOINTS,
+  format: "webp",
+  quality: 80,
+};
+
+type GeneratorAppProps = {
+  initialSettings?: Partial<GeneratorSettings>;
+};
+
+export function GeneratorApp({ initialSettings }: GeneratorAppProps = {}) {
   const {register, revoke, revokeAll} = useObjectUrls();
   const {
     jobs,
@@ -26,9 +36,8 @@ export function GeneratorApp() {
 
   const [images, setImages] = useState<SourceImage[]>([]);
   const [settings, setSettings] = useState<GeneratorSettings>({
-    selectedBreakpoints: DEFAULT_SELECTED_BREAKPOINTS,
-    format: "webp",
-    quality: 80,
+    ...DEFAULT_SETTINGS,
+    ...initialSettings,
   });
 
   const canGenerate =
