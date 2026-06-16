@@ -1,0 +1,28 @@
+.page {
+  --landing-bg: #fafafa;
+  --landing-surface: #ffffff;
+  --landing-ink: #18181b;
+  --landing-muted: #71717a;
+  --landing-border: #e4e4e7;
+
+  background: var(--landing-bg);
+  color: var(--landing-ink);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --landing-bg: #09090b;
+    --landing-surface: #18181b;
+    --landing-ink: #fafafa;
+    --landing-muted: #a1a1aa;
+    --landing-border: #27272a;
+  }
+}
+
+.toolShell {
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  border-radius: 1rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+}

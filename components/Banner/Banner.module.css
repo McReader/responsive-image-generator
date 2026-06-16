@@ -1,0 +1,29 @@
+@media (prefers-reduced-motion: no-preference) {
+  .enter {
+    animation: banner-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .enterDelay1 {
+    animation-delay: 80ms;
+  }
+
+  .enterDelay2 {
+    animation-delay: 160ms;
+  }
+
+  .enterDelay3 {
+    animation-delay: 240ms;
+  }
+}
+
+@keyframes banner-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
