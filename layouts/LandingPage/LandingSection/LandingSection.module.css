@@ -1,8 +1,7 @@
 .section {
-  border-top: 1px solid var(--landing-border);
   padding-block: clamp(3.5rem, 8vw, 5rem);
 }
 
-.section:first-child {
-  border-top: 0;
+.band {
+  background: var(--landing-band);
 }

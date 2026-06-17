@@ -32,13 +32,13 @@ export function LandingPage({ content }: LandingPageProps) {
         </LandingContainer>
       </LandingSection>
 
-      <LandingSection>
+      <LandingSection tone="band">
         <LandingContainer>
           <FeaturesGrid title={features.title} items={features.items} />
         </LandingContainer>
       </LandingSection>
 
-      <LandingSection id="tool" ariaLabel="Image generator">
+      <LandingSection id="tool" ariaLabel="Image generator" tone="band">
         <LandingContainer>
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
@@ -67,7 +67,7 @@ export function LandingPage({ content }: LandingPageProps) {
       ))}
 
       {cta ? (
-        <LandingSection>
+        <LandingSection tone="band">
           <LandingContainer narrow>
             <Banner
               variant="cta"

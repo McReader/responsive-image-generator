@@ -29,13 +29,13 @@ export function HubPage({ content, landingPages }: HubPageProps) {
         </LandingContainer>
       </LandingSection>
 
-      <LandingSection>
+      <LandingSection tone="band">
         <LandingContainer>
           <FeaturesGrid title={trust.title} items={trust.items} eyebrow="Trust" />
         </LandingContainer>
       </LandingSection>
 
-      <LandingSection id="tools" ariaLabel="Image tools">
+      <LandingSection id="tools" ariaLabel="Image tools" tone="band">
         <LandingContainer>
           <ToolsDirectory
             title={tools.title}
