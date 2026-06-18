@@ -21,7 +21,7 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
     case "code":
       return (
         <div className="mt-6">
-          <h4>{block.title}</h4>
+          <p className={styles.subTitle}>{block.title}</p>
           <pre className={styles.code}>{block.content}</pre>
         </div>
       );
@@ -30,7 +30,6 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
       return (
         <article className={styles.comparison}>
           <h3>{block.title}</h3>
-          <p className="mt-3 text-sm font-medium">Advantages</p>
           <ul className="mt-2">
             {block.advantages.map((item) => (
               <li key={item}>{item}</li>

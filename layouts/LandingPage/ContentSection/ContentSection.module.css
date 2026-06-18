@@ -22,7 +22,7 @@
   font-weight: 600;
 }
 
-.prose h4 {
+.prose .subTitle {
   color: var(--landing-muted);
   font-size: 0.75rem;
   font-weight: 500;
