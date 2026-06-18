@@ -1,4 +1,5 @@
 import type {ReactNode} from "react";
+import Link from "next/link";
 import styles from "./Banner.module.css";
 
 export type CtaLink = {
@@ -58,13 +59,13 @@ export function Banner({
       <div
         className={`mt-8 flex flex-wrap items-center justify-center gap-3 ${enter} ${styles.enterDelay3}`}
       >
-        <a className="button primary" href={primaryCta.href}>
+        <Link className="button primary" href={primaryCta.href}>
           {primaryCta.label}
-        </a>
+        </Link>
         {secondaryCta ? (
-          <a className="button outlined" href={secondaryCta.href}>
+          <Link className="button outlined" href={secondaryCta.href}>
             {secondaryCta.label}
-          </a>
+          </Link>
         ) : null}
       </div>
 
