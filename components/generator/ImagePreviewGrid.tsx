@@ -9,15 +9,11 @@ interface ImagePreviewGridProps {
 
 export function ImagePreviewGrid({ images, onClearAll, onRemove, selectedBreakpointsCount = 0 }: ImagePreviewGridProps) {
   if (images.length === 0) {
-    return (
-      <div className="rounded-2xl border border-zinc-200 bg-white p-6 text-sm text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
-        Uploaded images will appear here.
-      </div>
-    );
+    return null;
   }
 
   return (
-    <section className="rounded-2xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
+    <section className="border-t border-zinc-200 pt-6 dark:border-zinc-800">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
           Uploaded images ({images.length})
@@ -38,7 +34,7 @@ export function ImagePreviewGrid({ images, onClearAll, onRemove, selectedBreakpo
         {images.map((image) => (
           <article
             key={image.id}
-            className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800"
+            className="overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-950"
           >
             <div className="relative aspect-video bg-zinc-100 dark:bg-zinc-950">
               {/* eslint-disable-next-line @next/next/no-img-element */}

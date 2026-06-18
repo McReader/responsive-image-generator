@@ -31,7 +31,7 @@ export function HtmlSnippetPanel({ variants }: HtmlSnippetPanelProps) {
   };
 
   return (
-    <section className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+    <section className="border-t border-zinc-200 pt-6 dark:border-zinc-800">
       <h2 className="mb-4 text-base font-semibold text-zinc-900 dark:text-zinc-100">
         HTML snippets
       </h2>
@@ -44,9 +44,9 @@ export function HtmlSnippetPanel({ variants }: HtmlSnippetPanelProps) {
           return (
             <article
               key={sourceImageId}
-              className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800"
+              className="overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-950/60"
             >
-              <div className="flex items-center justify-between border-b border-zinc-200 px-4 py-3 dark:border-zinc-800">
+              <div className="flex items-center justify-between px-4 py-3">
                 <h3 className="truncate text-sm font-medium text-zinc-900 dark:text-zinc-100">
                   {sourceName}
                 </h3>

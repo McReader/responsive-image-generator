@@ -30,15 +30,11 @@ export function ResultsPanel({
   const failedJobs = jobs.filter((job) => job.status === "error");
 
   if (variants.length === 0 && !isProcessing && failedJobs.length === 0) {
-    return (
-      <section className="rounded-2xl border border-zinc-200 bg-white p-6 text-sm text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
-        Generated variants will appear here after processing.
-      </section>
-    );
+    return null;
   }
 
   return (
-    <section className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+    <section className="border-t border-zinc-200 pt-6 dark:border-zinc-800">
       <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
@@ -89,16 +85,13 @@ export function ResultsPanel({
         </div>
       )}
 
-      <div className="space-y-6">
+      <div className="space-y-8">
         {Array.from(grouped.entries()).map(([sourceImageId, sourceVariants]) => {
           const sourceName = sourceVariants[0]?.sourceName ?? "image";
           const sorted = sourceVariants.slice().sort((a, b) => a.width - b.width);
 
           return (
-            <article
-              key={sourceImageId}
-              className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-800"
-            >
+            <article key={sourceImageId}>
               <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -123,7 +116,7 @@ export function ResultsPanel({
                 {sorted.map((variant) => (
                   <div
                     key={variant.id}
-                    className="overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800"
+                    className="overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-950"
                   >
                     <div className="aspect-video bg-zinc-100 dark:bg-zinc-950">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
