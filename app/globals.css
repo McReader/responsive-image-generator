@@ -11,6 +11,10 @@
   --button-outlined-border-color: theme(color.zinc.300);
   --button-outlined-border-color-hover: theme(color.zinc.50);
   --button-outlined-foreground: theme(color.zinc.700);
+
+  --icon-button-foreground: theme(color.zinc.500);
+  --icon-button-foreground-hover: theme(color.zinc.900);
+  --icon-button-foreground-active: theme(color.zinc.700);
 }
 
 @theme inline {
@@ -32,6 +36,10 @@
     --button-outlined-border-color: theme(color.zinc.700);
     --button-outlined-border-color-hover: theme(color.zinc.500);
     --button-outlined-foreground: theme(color.zinc.200);
+
+    --icon-button-foreground: theme(color.zinc.400);
+    --icon-button-foreground-hover: theme(color.white);
+    --icon-button-foreground-active: theme(color.zinc.200);
   }
 }
 
@@ -48,6 +56,7 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  gap: theme(spacing.2);
 }
 
 .button.primary {
@@ -79,5 +88,38 @@ body {
 
 .button.outlined:disabled {
   opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon-button {
+  cursor: pointer;
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--icon-button-foreground);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.icon-button:hover:not(:disabled) {
+  color: var(--icon-button-foreground-hover);
+}
+
+.icon-button:active:not(:disabled) {
+  color: var(--icon-button-foreground-active);
+}
+
+.icon-button:focus-visible {
+  color: var(--icon-button-foreground-hover);
+  outline: none;
+}
+
+.icon-button:disabled {
+  opacity: 0.4;
   cursor: not-allowed;
 }

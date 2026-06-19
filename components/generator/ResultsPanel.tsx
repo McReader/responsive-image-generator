@@ -1,6 +1,8 @@
-import {BuyMeACoffeeButton} from "./BuyMeACoffeeButton";
+import { GoDownload } from "react-icons/go";
+import { IoCodeSlashOutline } from "react-icons/io5";
 import {getBaseName} from "@/lib/breakpoints";
 import {downloadAllVariantsAsZip, downloadSourceVariantsAsZip} from "@/lib/download";
+import {BuyMeACoffeeButton} from "./BuyMeACoffeeButton";
 import type {ImageVariant, ProcessJob} from "@/lib/types";
 
 interface ResultsPanelProps {
@@ -48,16 +50,19 @@ export function ResultsPanel({
         </div>
 
         {hasResults && (
-          <>
-            <button
+          <div className="flex gap-4">
+            <button 
+              title="Download all as ZIP"
+              aria-label="Download all as ZIP"
               type="button"
               onClick={() => void downloadAllVariantsAsZip(variants)}
               className="button primary"
             >
-              Download all as ZIP
+              <GoDownload size={20} />
+              Download all
             </button>
             <BuyMeACoffeeButton />
-          </>
+          </div>
         )}
       </div>
 
@@ -91,7 +96,7 @@ export function ResultsPanel({
           const sorted = sourceVariants.slice().sort((a, b) => a.width - b.width);
 
           return (
-            <article key={sourceImageId}>
+            <div key={sourceImageId}>
               <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -101,15 +106,27 @@ export function ResultsPanel({
                     {sorted.length} variant(s)
                   </p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() =>
-                    void downloadSourceVariantsAsZip(sourceName, sorted)
-                  }
-                  className="inline-flex h-9 items-center justify-center rounded-lg border border-zinc-300 px-3 text-xs font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
-                >
-                  Download image ZIP
-                </button>
+                <div className="flex gap-4">
+                  <button
+                    title="Download image ZIP"
+                    aria-label="Download image ZIP"
+                    type="button"
+                    onClick={() =>
+                      void downloadSourceVariantsAsZip(sourceName, sorted)
+                    }
+                    className="icon-button"
+                  >
+                    <GoDownload size={24} />
+                  </button>
+                  <button
+                    title="Show HTML snippet"
+                    aria-label="Show HTML snippet"
+                    type="button"
+                    className="icon-button"
+                  >
+                    <IoCodeSlashOutline size={24} />
+                  </button>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -137,7 +154,7 @@ export function ResultsPanel({
                   </div>
                 ))}
               </div>
-            </article>
+            </div>
           );
         })}
       </div>
