@@ -1,8 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import { GoDownload } from "react-icons/go";
 import { IoCodeSlashOutline } from "react-icons/io5";
 import {getBaseName} from "@/lib/breakpoints";
 import {downloadAllVariantsAsZip, downloadSourceVariantsAsZip} from "@/lib/download";
 import {BuyMeACoffeeButton} from "./BuyMeACoffeeButton";
+import {HtmlSnippetModal} from "./HtmlSnippetModal";
 import type {ImageVariant, ProcessJob} from "@/lib/types";
 
 interface ResultsPanelProps {
@@ -22,6 +26,8 @@ export function ResultsPanel({
   progress,
   formatBytes,
 }: ResultsPanelProps) {
+  const [openSnippetSourceId, setOpenSnippetSourceId] = useState<string | null>(null);
+
   const grouped = variants.reduce<Map<string, ImageVariant[]>>((acc, variant) => {
     const existing = acc.get(variant.sourceImageId) ?? [];
     existing.push(variant);
@@ -122,6 +128,7 @@ export function ResultsPanel({
                     title="Show HTML snippet"
                     aria-label="Show HTML snippet"
                     type="button"
+                    onClick={() => setOpenSnippetSourceId(sourceImageId)}
                     className="icon-button"
                   >
                     <IoCodeSlashOutline size={24} />
@@ -158,6 +165,17 @@ export function ResultsPanel({
           );
         })}
       </div>
+
+      {openSnippetSourceId && grouped.has(openSnippetSourceId) && (
+        <HtmlSnippetModal
+          isOpen
+          sourceName={
+            grouped.get(openSnippetSourceId)?.[0]?.sourceName ?? "image"
+          }
+          variants={grouped.get(openSnippetSourceId) ?? []}
+          onClose={() => setOpenSnippetSourceId(null)}
+        />
+      )}
     </section>
   );
 }

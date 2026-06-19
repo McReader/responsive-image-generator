@@ -5,7 +5,6 @@ import {DEFAULT_SELECTED_BREAKPOINTS} from "@/lib/breakpoints";
 import type {GeneratorSettings, SourceImage} from "@/lib/types";
 import {useImageProcessor} from "@/hooks/useImageProcessor";
 import {useObjectUrls} from "@/hooks/useObjectUrls";
-import {HtmlSnippetPanel} from "./HtmlSnippetPanel";
 import {ImagePreviewGrid} from "./ImagePreviewGrid";
 import {ResultsPanel} from "./ResultsPanel";
 import {SettingsPanel} from "./SettingsPanel";
@@ -117,8 +116,6 @@ export function GeneratorApp({ initialSettings }: GeneratorAppProps = {}) {
           progress={progress}
           formatBytes={formatBytes}
         />
-
-        <HtmlSnippetPanel variants={variants}/>
       </div>
 
       <div className="space-y-6">
