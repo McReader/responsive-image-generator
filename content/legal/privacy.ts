@@ -3,7 +3,7 @@ import type {Metadata} from "next";
 
 export const privacyContent: LegalPageContent = {
   title: "Privacy Policy",
-  lastUpdated: "June 30, 2026",
+  lastUpdated: "July 7, 2026",
   intro: [
     [
       "This privacy policy explains how Responsive Image Generator (\"we\", \"us\", or \"our\") collects, uses, and protects information when you use this website.",
@@ -63,6 +63,16 @@ export const privacyContent: LegalPageContent = {
           type: "paragraph",
           content: [
             "We do not collect your name, email address, or any images you upload. Files you select for processing stay on your device at all times and are never transmitted to us or to any third party.",
+          ],
+        },
+        {
+          type: "paragraph",
+          content: [
+            "If you choose to support this project via the ",
+            { bold: "Buy me a coffee" },
+            " button, you leave this website and are taken to ",
+            { text: "buymeacoffee.com", href: "https://www.buymeacoffee.com/" },
+            ". Any information you provide there — such as your name, email address, or payment details — is collected and processed by Buy Me a Coffee, not by us.",
           ],
         },
       ],
@@ -145,6 +155,42 @@ export const privacyContent: LegalPageContent = {
             },
           ],
         },
+        { type: "subheading", text: "Supporting the project" },
+        {
+          type: "paragraph",
+          content: [
+            "This section covers the optional donation link on this website. It is not required to use any of the image tools.",
+          ],
+        },
+        { type: "subheading", text: "Buy Me a Coffee" },
+        {
+          type: "paragraph",
+          content: [
+            "Buy Me a Coffee is a third-party platform that lets visitors support creators with one-time or recurring payments. This website only links to our Buy Me a Coffee page — we do not embed Buy Me a Coffee scripts, widgets, or payment forms. Nothing is loaded from Buy Me a Coffee until you click the link and open their site in a new tab.",
+          ],
+        },
+        {
+          type: "paragraph",
+          content: [
+            "If you choose to make a payment, Buy Me a Coffee and its payment processors (such as Stripe) collect the information needed to complete the transaction. We do not receive your payment card details, and we do not maintain a list of supporters on this website. To understand how Buy Me a Coffee handles your data, consult their ",
+            { text: "privacy policy", href: "https://www.buymeacoffee.com/privacy-policy" },
+            ".",
+          ],
+        },
+        {
+          type: "fields",
+          items: [
+            {
+              label: "Personal data processed",
+              value: ["Identifiers (such as name and email address); payment information, if you choose to donate"],
+            },
+            { label: "Place of processing", value: ["United States"] },
+            {
+              label: "Privacy policy",
+              value: [{ text: "buymeacoffee.com/privacy-policy", href: "https://www.buymeacoffee.com/privacy-policy" }],
+            },
+          ],
+        },
       ],
     },
     {
@@ -186,11 +232,17 @@ export const privacyContent: LegalPageContent = {
             ],
             [
               { bold: "Access, correct, delete, or port data already processed by Google" },
-              ": because Google Analytics is the only processor involved and we don't have a database of our own, we can't look up, edit, or export data tied to a specific person on Google's systems. Use Google's own tools instead: ",
+              ": because Google Analytics is a third-party processor and we don't have a database of our own, we can't look up, edit, or export data tied to a specific person on Google's systems. Use Google's own tools instead: ",
               { text: "Google Account data & privacy controls", href: "https://myaccount.google.com/data-and-privacy" },
               " to manage what Google has collected, or the ",
               { text: "Google Analytics opt-out browser add-on", href: "https://tools.google.com/dlpage/gaoptout" },
               " to stop Analytics from collecting data on any site, including this one.",
+            ],
+            [
+              { bold: "Access, correct, delete, or port data related to a donation" },
+              ": because Buy Me a Coffee processes payments on its own platform, we don't hold that information. Contact Buy Me a Coffee directly using the details in their ",
+              { text: "privacy policy", href: "https://www.buymeacoffee.com/privacy-policy" },
+              ".",
             ],
             [
               { bold: "Anything else" },
