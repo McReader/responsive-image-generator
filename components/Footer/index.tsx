@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {landingPages} from "@/content/landing";
 import {footerCompanyLinks, footerLegalLinks, siteName, siteTagline} from "@/content/site";
+import {CookieSettingsButton} from "@/components/CookieConsent";
 import {LandingContainer} from "@/layouts/LandingPage/LandingContainer";
 
 function FooterColumn({
@@ -75,8 +76,9 @@ export function Footer({ currentPath }: FooterProps) {
           <FooterColumn title="Legal" links={footerLegalLinks} currentPath={currentPath} />
         </div>
 
-        <div className="border-t border-zinc-200 py-6 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-          © {new Date().getFullYear()} {siteName}. All rights reserved.
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-zinc-200 py-6 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+          <span>© {new Date().getFullYear()} {siteName}. All rights reserved.</span>
+          <CookieSettingsButton className="text-zinc-500 underline decoration-zinc-300 underline-offset-2 hover:text-zinc-900 hover:decoration-zinc-900 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-zinc-50 dark:hover:decoration-zinc-50" />
         </div>
       </LandingContainer>
     </footer>

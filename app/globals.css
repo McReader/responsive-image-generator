@@ -123,3 +123,85 @@ body {
   opacity: 0.4;
   cursor: not-allowed;
 }
+
+#cc-main {
+  --cc-font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --cc-modal-border-radius: theme(radius.xl);
+  --cc-btn-border-radius: theme(radius.md);
+  --cc-pm-toggle-border-radius: 999px;
+  --cc-bg: theme(color.white);
+  --cc-primary-color: theme(color.zinc.600);
+  --cc-secondary-color: theme(color.zinc.500);
+  --cc-separator-border-color: theme(color.zinc.200);
+  --cc-overlay-bg: rgb(0 0 0 / 35%);
+  --cc-btn-primary-bg: theme(color.zinc.900);
+  --cc-btn-primary-color: theme(color.white);
+  --cc-btn-primary-border-color: theme(color.zinc.900);
+  --cc-btn-primary-hover-bg: theme(color.zinc.700);
+  --cc-btn-primary-hover-color: theme(color.white);
+  --cc-btn-primary-hover-border-color: theme(color.zinc.700);
+  --cc-btn-secondary-bg: theme(color.zinc.100);
+  --cc-btn-secondary-color: theme(color.zinc.700);
+  --cc-btn-secondary-border-color: theme(color.zinc.100);
+  --cc-btn-secondary-hover-bg: theme(color.zinc.200);
+  --cc-btn-secondary-hover-color: theme(color.zinc.900);
+  --cc-btn-secondary-hover-border-color: theme(color.zinc.200);
+  --cc-toggle-on-bg: theme(color.zinc.900);
+  --cc-toggle-off-bg: theme(color.zinc.300);
+  --cc-toggle-readonly-bg: theme(color.zinc.200);
+  --cc-toggle-on-knob-bg: theme(color.white);
+  --cc-toggle-off-knob-bg: theme(color.white);
+  --cc-toggle-readonly-knob-bg: theme(color.white);
+  --cc-toggle-readonly-knob-icon-color: theme(color.zinc.400);
+  --cc-cookie-category-block-bg: theme(color.zinc.50);
+  --cc-cookie-category-block-border: theme(color.zinc.200);
+  --cc-cookie-category-block-hover-bg: theme(color.zinc.100);
+  --cc-cookie-category-block-hover-border: theme(color.zinc.300);
+  --cc-cookie-category-expanded-block-bg: theme(color.zinc.50);
+  --cc-cookie-category-expanded-block-hover-bg: theme(color.zinc.50);
+  --cc-section-category-border: theme(color.zinc.200);
+  --cc-footer-bg: theme(color.zinc.50);
+  --cc-footer-color: theme(color.zinc.500);
+  --cc-footer-border-color: theme(color.zinc.200);
+  --cc-link-color: theme(color.zinc.900);
+}
+
+@media (prefers-color-scheme: dark) {
+  #cc-main {
+    --cc-bg: theme(color.zinc.900);
+    --cc-primary-color: theme(color.zinc.300);
+    --cc-secondary-color: theme(color.zinc.400);
+    --cc-separator-border-color: theme(color.zinc.800);
+    --cc-overlay-bg: rgb(0 0 0 / 60%);
+    --cc-btn-primary-bg: theme(color.zinc.100);
+    --cc-btn-primary-color: theme(color.zinc.900);
+    --cc-btn-primary-border-color: theme(color.zinc.100);
+    --cc-btn-primary-hover-bg: theme(color.zinc.300);
+    --cc-btn-primary-hover-color: theme(color.zinc.900);
+    --cc-btn-primary-hover-border-color: theme(color.zinc.300);
+    --cc-btn-secondary-bg: theme(color.zinc.800);
+    --cc-btn-secondary-color: theme(color.zinc.200);
+    --cc-btn-secondary-border-color: theme(color.zinc.800);
+    --cc-btn-secondary-hover-bg: theme(color.zinc.700);
+    --cc-btn-secondary-hover-color: theme(color.white);
+    --cc-btn-secondary-hover-border-color: theme(color.zinc.700);
+    --cc-toggle-on-bg: theme(color.zinc.100);
+    --cc-toggle-off-bg: theme(color.zinc.700);
+    --cc-toggle-readonly-bg: theme(color.zinc.800);
+    --cc-toggle-on-knob-bg: theme(color.zinc.900);
+    --cc-toggle-off-knob-bg: theme(color.zinc.900);
+    --cc-toggle-readonly-knob-bg: theme(color.zinc.900);
+    --cc-toggle-readonly-knob-icon-color: theme(color.zinc.500);
+    --cc-cookie-category-block-bg: theme(color.zinc.800);
+    --cc-cookie-category-block-border: theme(color.zinc.700);
+    --cc-cookie-category-block-hover-bg: theme(color.zinc.700);
+    --cc-cookie-category-block-hover-border: theme(color.zinc.600);
+    --cc-cookie-category-expanded-block-bg: theme(color.zinc.800);
+    --cc-cookie-category-expanded-block-hover-bg: theme(color.zinc.800);
+    --cc-section-category-border: theme(color.zinc.800);
+    --cc-footer-bg: theme(color.zinc.900);
+    --cc-footer-color: theme(color.zinc.400);
+    --cc-footer-border-color: theme(color.zinc.800);
+    --cc-link-color: theme(color.zinc.50);
+  }
+}

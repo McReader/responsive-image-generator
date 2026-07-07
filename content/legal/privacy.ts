@@ -41,7 +41,7 @@ export const privacyContent: LegalPageContent = {
         {
           type: "paragraph",
           content: [
-            "We try to collect as little data as possible. The types of data this website may collect, directly or through third-party services, include:",
+            "We try to collect as little data as possible, and only with your consent. The types of data this website may collect, through the third-party services described below, include:",
           ],
         },
         {
@@ -49,6 +49,14 @@ export const privacyContent: LegalPageContent = {
           items: [
             ["Usage data, such as pages visited, browser type, device type, and approximate location derived from your IP address"],
             ["Trackers, such as cookies or similar technologies used by analytics providers"],
+          ],
+        },
+        {
+          type: "paragraph",
+          content: [
+            "None of this is collected until you accept the relevant category in our cookie banner, which appears the first time you visit. You can change your choice at any time from ",
+            { bold: "Cookie settings" },
+            " in the footer.",
           ],
         },
         {
@@ -115,6 +123,14 @@ export const privacyContent: LegalPageContent = {
           ],
         },
         {
+          type: "paragraph",
+          content: [
+            "Google Analytics only runs if you accept the \u201cAnalytics\u201d category in our cookie banner. Until you do, no analytics cookies are set and no usage data is sent to Google. You can grant, withdraw, or change this choice at any time, with immediate effect, using the ",
+            { bold: "Cookie settings" },
+            " link in the footer of this website.",
+          ],
+        },
+        {
           type: "fields",
           items: [
             { label: "Personal data processed", value: ["Trackers; usage data"] },
@@ -156,7 +172,30 @@ export const privacyContent: LegalPageContent = {
         {
           type: "paragraph",
           content: [
-            "Send your request using the contact details at the top of this document. Requests are free of charge and we aim to respond as early as possible, and in any case within the timeframe required by applicable law.",
+            "We don't run our own servers or accounts, so the way you exercise these rights depends on what they relate to:",
+          ],
+        },
+        {
+          type: "list",
+          items: [
+            [
+              { bold: "Withdraw consent or object to analytics" },
+              ": click ",
+              { bold: "Cookie settings" },
+              " in the footer of this website at any time. Turning analytics off takes effect immediately, on this device, and stops any new data from being sent to Google Analytics. No request to us is needed.",
+            ],
+            [
+              { bold: "Access, correct, delete, or port data already processed by Google" },
+              ": because Google Analytics is the only processor involved and we don't have a database of our own, we can't look up, edit, or export data tied to a specific person on Google's systems. Use Google's own tools instead: ",
+              { text: "Google Account data & privacy controls", href: "https://myaccount.google.com/data-and-privacy" },
+              " to manage what Google has collected, or the ",
+              { text: "Google Analytics opt-out browser add-on", href: "https://tools.google.com/dlpage/gaoptout" },
+              " to stop Analytics from collecting data on any site, including this one.",
+            ],
+            [
+              { bold: "Anything else" },
+              " (a question, a complaint, or a request our self-service tools above don't cover): contact us using the details at the top of this document. Requests are free of charge and we aim to respond as early as possible, and in any case within the timeframe required by applicable law.",
+            ],
           ],
         },
         {
