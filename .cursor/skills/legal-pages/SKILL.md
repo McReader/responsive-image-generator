@@ -16,18 +16,18 @@ A **cookie consent banner** is wired to **Google Consent Mode v2** site-wide.
 ## Architecture
 
 ```
-app/privacy/page.tsx          →  static JSX (preferred — edit copy here)
-layouts/LegalPage/            →  shared shell: title, TOC, section styling, footer
+app/privacy/page.tsx          →  legacy content import (migrate to static JSX when touched)
+app/terms/page.tsx            →  static JSX (reference implementation)
+layouts/LegalPage/LegalDocumentShell.tsx →  shared shell for static legal pages
+layouts/LegalPage/LegalPage.tsx          →  legacy renderer (privacy only, for now)
 components/CookieConsent/     →  vanilla-cookieconsent banner + preferences modal
 lib/analytics/consentMode.ts  →  Consent Mode v2 default + category → gtag mapping
 app/layout.tsx                →  bootstrap script, banner, conditional GoogleAnalytics
 ```
 
-**Implemented today:** `/privacy` only.
+**Implemented today:** `/privacy` (legacy content file), `/terms` (static JSX).
 
-**Legacy (do not extend):** `content/legal/privacy.ts` and `content/legal/types.ts` still feed `/privacy` via `LegalPage`. When updating legal copy, prefer migrating that section to static JSX in `app/privacy/page.tsx` rather than editing the content files. Do not create new `content/legal/*` files.
-
-**Footer links not yet implemented:** `/terms`, `/cookies` (listed in `content/site.ts` → `footerLegalLinks`). Add as static `app/<slug>/page.tsx` routes when needed.
+**Footer links not yet implemented:** `/cookies` (listed in `content/site.ts` → `footerLegalLinks`).
 
 ## Core principles (follow these when writing copy)
 
@@ -150,11 +150,13 @@ Keep this table in sync when adding services:
 **We might hold it (future: contact form, accounts):**
 > Contact us at the email in Contact information.
 
-## Creating a new legal page (Terms, Cookies)
+## Creating a new legal page (Cookies, etc.)
 
-1. Add `app/<slug>/page.tsx` with static JSX inside `LegalPage` (or a dedicated layout if simpler)
+1. Add `app/<slug>/page.tsx` using `LegalDocumentShell` + `LegalSection` (see `app/terms/page.tsx`)
 2. Export `metadata` from the same file
 3. Page is auto-linked if already in `footerLegalLinks` (`content/site.ts`)
+
+**Legacy (do not extend):** `content/legal/privacy.ts` still feeds `/privacy`. Migrate to static JSX when editing; do not create new `content/legal/*` files.
 
 ## Do not
 
