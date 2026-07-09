@@ -1,8 +1,6 @@
 import Link from "next/link";
-import {landingPages} from "@/content/landing";
 import {footerCompanyLinks, footerLegalLinks, siteName, siteTagline} from "@/content/site";
 import {CookieSettingsButton} from "@/components/CookieConsent";
-import {LandingContainer} from "@/layouts/LandingPage/LandingContainer";
 
 function FooterColumn({
   title,
@@ -50,18 +48,10 @@ type FooterProps = {
 };
 
 export function Footer({ currentPath }: FooterProps) {
-  const toolLinks = [
-    { label: "All tools", href: "/" },
-    ...landingPages.map((page) => ({
-      label: page.content.hero.heading,
-      href: `/${page.slug}`,
-    })),
-  ];
-
   return (
     <footer className="border-t border-zinc-200 dark:border-zinc-800">
-      <LandingContainer>
-        <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container">
+        <div className="grid gap-10 py-12 sm:grid-cols-3">
           <div>
             <p className="text-[0.9375rem] font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
               {siteName}
@@ -71,7 +61,6 @@ export function Footer({ currentPath }: FooterProps) {
             </p>
           </div>
 
-          <FooterColumn title="Tools" links={toolLinks} currentPath={currentPath} />
           <FooterColumn title="Company" links={footerCompanyLinks} currentPath={currentPath} />
           <FooterColumn title="Legal" links={footerLegalLinks} currentPath={currentPath} />
         </div>
@@ -80,7 +69,7 @@ export function Footer({ currentPath }: FooterProps) {
           <span>© {new Date().getFullYear()} {siteName}. All rights reserved.</span>
           <CookieSettingsButton className="text-zinc-500 underline decoration-zinc-300 underline-offset-2 hover:text-zinc-900 hover:decoration-zinc-900 dark:text-zinc-400 dark:decoration-zinc-600 dark:hover:text-zinc-50 dark:hover:decoration-zinc-50" />
         </div>
-      </LandingContainer>
+      </div>
     </footer>
   );
 }

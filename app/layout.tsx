@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { CookieConsentManager } from "@/components/CookieConsent";
+import { Header } from "@/components/Header";
 import { GA_MEASUREMENT_ID, GTAG_CONSENT_BOOTSTRAP_SCRIPT } from "@/lib/analytics/consentMode";
 import "./globals.css";
 
@@ -34,6 +35,7 @@ export default function RootLayout({
     >
       
       <body className="min-h-full flex flex-col">
+        <Header />
         {children}
         <Script
           id="consent-mode-default"

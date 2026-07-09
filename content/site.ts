@@ -1,5 +1,7 @@
 export const siteName = "Responsive Image Generator";
 
+export const siteShortName = "Image Tools";
+
 export const siteTagline = "Browser-based image tools. Nothing is uploaded to a server.";
 
 export type FooterLink = {

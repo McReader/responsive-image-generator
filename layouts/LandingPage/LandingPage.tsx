@@ -6,7 +6,6 @@ import {Footer} from "@/components/Footer";
 import {landingPages} from "@/content/landing";
 import {ContentSection} from "./ContentSection";
 import {BreakpointRuler} from "./BreakpointRuller";
-import {LandingContainer} from "./LandingContainer";
 import {LandingSection} from "./LandingSection";
 import type {LandingPageContent} from "./types";
 import styles from "./LandingPage.module.css";
@@ -23,7 +22,7 @@ export function LandingPage({ content }: LandingPageProps) {
     <>
       <main className={styles.page}>
         <LandingSection className="pt-16 pb-12 sm:pt-20 sm:pb-16">
-          <LandingContainer>
+          <div className="container">
             <Banner
               variant="hero"
               eyebrow="Browser-based · Private · Free"
@@ -33,17 +32,17 @@ export function LandingPage({ content }: LandingPageProps) {
               secondaryCta={hero.secondaryCta}
               footer={<BreakpointRuler />}
             />
-          </LandingContainer>
+          </div>
         </LandingSection>
 
         <LandingSection tone="band">
-          <LandingContainer>
+          <div className="container">
             <FeaturesGrid title={features.title} items={features.items} />
-          </LandingContainer>
+          </div>
         </LandingSection>
 
         <LandingSection id="tool" ariaLabel="Image generator" tone="band">
-          <LandingContainer>
+          <div className="container">
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
                 Tool
@@ -59,34 +58,34 @@ export function LandingPage({ content }: LandingPageProps) {
             <div className={`${styles.toolShell} mt-8`}>
               <GeneratorApp initialSettings={content.toolDefaults} />
             </div>
-          </LandingContainer>
+          </div>
         </LandingSection>
 
         {sections.map((section) => (
           <LandingSection key={section.id ?? section.heading} id={section.id}>
-            <LandingContainer narrow>
+            <div className="container">
               <ContentSection {...section} />
-            </LandingContainer>
+            </div>
           </LandingSection>
         ))}
 
         {cta ? (
           <LandingSection tone="band">
-            <LandingContainer narrow>
+            <div className="container">
               <Banner
                 variant="cta"
                 heading={cta.heading}
                 description={cta.description}
                 primaryCta={cta.primaryCta}
               />
-            </LandingContainer>
+            </div>
           </LandingSection>
         ) : null}
 
         <LandingSection>
-          <LandingContainer narrow>
+          <div className="container max-w-2xl mx-auto">
             <FAQ title={faq.title} items={faq.items} />
-          </LandingContainer>
+          </div>
         </LandingSection>
       </main>
 

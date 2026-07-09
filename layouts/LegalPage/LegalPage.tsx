@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {Footer} from "@/components/Footer";
-import {LandingContainer} from "@/layouts/LandingPage/LandingContainer";
 import {LandingSection} from "@/layouts/LandingPage/LandingSection";
 import pageStyles from "@/layouts/LandingPage/LandingPage.module.css";
 import type {LegalBlock, LegalPageContent, RichText} from "@/content/legal/types";
@@ -94,7 +93,7 @@ export function LegalPage({ content, currentPath }: LegalPageProps) {
     <>
       <main className={pageStyles.page}>
         <LandingSection className="pt-16 pb-12 sm:pt-20 sm:pb-16">
-          <LandingContainer narrow>
+          <div className="container">
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
               Legal
             </p>
@@ -133,11 +132,11 @@ export function LegalPage({ content, currentPath }: LegalPageProps) {
                 ))}
               </ol>
             </nav>
-          </LandingContainer>
+          </div>
         </LandingSection>
 
         <LandingSection tone="band">
-          <LandingContainer narrow>
+          <div className="container">
             <div className="grid gap-12 sm:gap-14">
               {content.sections.map((section) => (
                 <section key={section.id} id={section.id} className="scroll-mt-6">
@@ -152,7 +151,7 @@ export function LegalPage({ content, currentPath }: LegalPageProps) {
                 </section>
               ))}
             </div>
-          </LandingContainer>
+          </div>
         </LandingSection>
       </main>
 
