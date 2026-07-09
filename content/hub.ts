@@ -4,9 +4,9 @@ import type {Metadata} from "next";
 export const hubContent: HubPageContent = {
   hero: {
     eyebrow: "Browser-based · Private · Free",
-    heading: "Image tools that run in your browser",
+    heading: "Images that make your website fast",
     description:
-      "Resize, convert, and generate responsive markup without uploading files. Pick the tool that matches your workflow.",
+      "Resize, convert, and generate responsive markup in your browser. Pick the tool that matches your workflow.",
     primaryCta: { label: "Browse tools", href: "#tools" },
   },
   trust: {
