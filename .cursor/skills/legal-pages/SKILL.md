@@ -1,10 +1,11 @@
 ---
 name: legal-pages
 description: >-
-  Privacy policy, cookie consent, and third-party service disclosure workflow
-  for this project. Use when adding integrations (Google Analytics, AdSense,
-  Buy Me a Coffee, embeds), updating legal pages, cookie banner categories,
-  Consent Mode wiring, or answering what data the site collects.
+  Privacy policy, terms of service, cookie consent, and third-party service
+  disclosure workflow for this project. Use when adding integrations (Google
+  Analytics, AdSense, Buy Me a Coffee, embeds), updating legal pages, cookie
+  banner categories, Consent Mode wiring, terms acceptance UX, or answering
+  what data the site collects.
 ---
 
 # Legal Pages & Privacy Compliance
@@ -39,6 +40,27 @@ app/layout.tsx                →  bootstrap script, banner, conditional GoogleA
    - Consent-based trackers → self-service via **Cookie settings** (footer)
    - Data held by vendors → vendor's own tools / privacy policy
    - Everything else → contact email in policy
+6. **Cookie consent ≠ terms acceptance.** Analytics/marketing need the cookie banner. Terms use browsewrap (see below) — do not conflate the two.
+
+## Terms acceptance (no checkbox on the generator)
+
+This site uses **browsewrap**: `/terms` states that accessing or using the website constitutes agreement. Footer links to `/terms` and `/privacy` are sufficient.
+
+**Do not add a "I accept the Terms" checkbox** to `GeneratorApp` or elsewhere unless the product changes materially. Reasons:
+
+| Today (no checkbox needed) | Would require explicit acceptance later |
+|----------------------------|----------------------------------------|
+| Free tool, no account | User accounts / sign-up |
+| No on-site payments | Paid features or subscriptions on this site |
+| Images processed client-side only | Contact/form collecting PII as a condition of use |
+| Analytics gated by cookie banner (separate consent) | Enterprise contracts needing an audit trail |
+
+**Cookie banner** = consent for trackers (GDPR/ePrivacy). **Terms** = rules of use. Only the former is implemented in UI today.
+
+Optional low-friction copy (not required): a single line near the tool or footer — "By using this tool, you agree to our [Terms](/terms) and [Privacy Policy](/privacy)." Do not add this unless the user asks; footer links + browsewrap terms are enough.
+
+When adding accounts, payments, or signup flows, revisit: use **clickwrap** (unchecked checkbox + explicit "I agree to the Terms" before the action completes) and update `/terms` if the relationship changes.
+
 
 ## Integration types
 
@@ -160,6 +182,7 @@ Keep this table in sync when adding services:
 
 ## Do not
 
+- Add a terms-and-conditions checkbox to the image generator (or other free tools) without a product change that requires clickwrap — see "Terms acceptance" above
 - Introduce content registries, block types, or render-from-data patterns for legal pages
 - Add iubenda-style per-country sections unless explicitly requested
 - Claim you can delete/export per-user analytics data you don't store
