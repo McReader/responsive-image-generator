@@ -94,13 +94,13 @@ export function Header() {
               type="button"
               className={`inline-flex items-center gap-1 rounded-md px-3 py-2 ${
                 activeTool ? navLinkActiveClass : navLinkClass
-              } hover:text-zinc-900 dark:hover:text-zinc-50`}
+              } hover:text-zinc-900 dark:hover:text-zinc-50 cursor-pointer`}
               aria-expanded={toolsOpen}
               aria-haspopup="true"
               aria-controls={toolsMenuId}
               onClick={() => setToolsOpen((open) => !open)}
             >
-              {activeTool ? activeTool.label : "Tools"}
+              Tools
               <IoChevronDown
                 className={`h-4 w-4 transition-transform ${toolsOpen ? "rotate-180" : ""}`}
                 aria-hidden="true"
