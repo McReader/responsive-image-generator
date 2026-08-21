@@ -1,5 +1,6 @@
 import type {ContentBlock, ContentSectionData} from "../types";
 import {OutputFiles} from "./OutputFiles";
+import {CodeSnippet} from "@/components/CodeSnippet";
 import styles from "./ContentSection.module.css";
 
 function ContentBlockRenderer({ block }: { block: ContentBlock }) {
@@ -21,10 +22,11 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
 
     case "code":
       return (
-        <div className={styles.codeBlock}>
-          <p className={styles.subTitle}>{block.title}</p>
-          <pre className={styles.code}>{block.content}</pre>
-        </div>
+        <CodeSnippet
+          title={block.title}
+          code={block.content}
+          language="html"
+        />
       );
 
     case "files":

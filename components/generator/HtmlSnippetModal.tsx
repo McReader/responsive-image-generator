@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { IoCheckmark, IoClose, IoCopyOutline } from "react-icons/io5";
+import { CodeSnippet } from "@/components/CodeSnippet";
 import { buildImgSnippet } from "@/lib/html-snippets";
 import type { ImageVariant } from "@/lib/types";
 
@@ -107,9 +108,7 @@ export function HtmlSnippetModal({
           </div>
         </div>
 
-        <pre className="max-h-[min(70vh,32rem)] overflow-auto bg-zinc-950 p-4 text-xs leading-6 text-zinc-100">
-          <code>{snippet}</code>
-        </pre>
+        <CodeSnippet code={snippet} language="html" />
       </div>
     </div>
   );
