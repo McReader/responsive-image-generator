@@ -61,10 +61,14 @@ export function LandingPage({ content }: LandingPageProps) {
           </div>
         </LandingSection>
 
-        {sections.map((section) => (
-          <LandingSection key={section.id ?? section.heading} id={section.id}>
+        {sections.map((section, index) => (
+          <LandingSection
+            key={section.id ?? section.heading}
+            id={section.id}
+            tone={index % 2 === 1 ? "band" : "default"}
+          >
             <div className="container">
-              <ContentSection {...section} />
+              <ContentSection {...section} sectionNumber={index + 1} />
             </div>
           </LandingSection>
         ))}

@@ -1,16 +1,17 @@
 import type {ContentBlock, ContentSectionData} from "../types";
+import {OutputFiles} from "./OutputFiles";
 import styles from "./ContentSection.module.css";
 
 function ContentBlockRenderer({ block }: { block: ContentBlock }) {
   switch (block.type) {
     case "paragraph":
-      return <p>{block.text}</p>;
+      return <p className={styles.paragraph}>{block.text}</p>;
 
     case "list":
       return (
-        <div>
-          {block.title ? <h3>{block.title}</h3> : null}
-          <ul>
+        <div className={styles.listBlock}>
+          {block.title ? <h3 className={styles.blockTitle}>{block.title}</h3> : null}
+          <ul className={styles.list}>
             {block.items.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -20,22 +21,25 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
 
     case "code":
       return (
-        <div className="mt-6">
+        <div className={styles.codeBlock}>
           <p className={styles.subTitle}>{block.title}</p>
           <pre className={styles.code}>{block.content}</pre>
         </div>
       );
 
+    case "files":
+      return <OutputFiles title={block.title} items={block.items} />;
+
     case "comparison":
       return (
         <article className={styles.comparison}>
-          <h3>{block.title}</h3>
-          <ul className="mt-2">
+          <h3 className={styles.blockTitle}>{block.title}</h3>
+          <ul className={styles.list}>
             {block.advantages.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <p className="mt-3 text-sm">
+          <p className={styles.bestFor}>
             <span className="font-medium">Best for:</span> {block.bestFor}
           </p>
         </article>
@@ -43,15 +47,26 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
   }
 }
 
-export function ContentSection({ heading, blocks }: ContentSectionData) {
+export function ContentSection({
+  heading,
+  blocks,
+  sectionNumber,
+}: ContentSectionData & { sectionNumber?: number }) {
   return (
-    <>
-      <h2 className={styles.heading}>{heading}</h2>
-      <div className={`${styles.prose} mt-6`}>
+    <div className={styles.content}>
+      <div className={styles.headingRow}>
+        {sectionNumber ? (
+          <span className={styles.number} aria-hidden="true">
+            {String(sectionNumber).padStart(2, "0")}
+          </span>
+        ) : null}
+        <h2 className={styles.heading}>{heading}</h2>
+      </div>
+      <div className={styles.prose}>
         {blocks.map((block, index) => (
           <ContentBlockRenderer key={`${block.type}-${index}`} block={block} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

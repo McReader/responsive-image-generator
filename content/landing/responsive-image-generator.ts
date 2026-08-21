@@ -58,9 +58,14 @@ export const responsiveImageGeneratorContent: LandingPageContent = {
           ],
         },
         {
-          type: "code",
+          type: "files",
           title: "Example outputs",
-          content: "hero-320.webp\nhero-640.webp\nhero-1024.webp\nhero-1920.webp",
+          items: [
+            { name: "hero-320.webp", label: "Mobile", size: "7 KB" },
+            { name: "hero-640.webp", label: "Tablet", size: "24 KB" },
+            { name: "hero-1024.webp", label: "Laptop", size: "58 KB" },
+            { name: "hero-1920.webp", label: "Desktop", size: "158 KB" },
+          ],
         },
         {
           type: "code",

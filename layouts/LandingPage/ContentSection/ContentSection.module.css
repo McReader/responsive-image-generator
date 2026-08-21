@@ -1,3 +1,24 @@
+.content {
+  margin-inline: auto;
+  max-width: 48rem;
+}
+
+.headingRow {
+  align-items: baseline;
+  border-bottom: 1px solid var(--landing-border);
+  display: flex;
+  gap: 0.875rem;
+  padding-bottom: 1rem;
+}
+
+.number {
+  color: var(--landing-muted);
+  flex: 0 0 auto;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
 .heading {
   font-size: clamp(1.5rem, 3vw, 1.875rem);
   font-weight: 600;
@@ -10,16 +31,23 @@
   color: var(--landing-muted);
   font-size: 1rem;
   line-height: 1.7;
+  padding-top: 1.5rem;
 }
 
 .prose > * + * {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
-.prose h3 {
+.blockTitle {
   color: var(--landing-ink);
   font-size: 1rem;
   font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.625rem;
+}
+
+.paragraph {
+  max-width: 42rem;
 }
 
 .prose .subTitle {
@@ -31,7 +59,15 @@
   text-transform: uppercase;
 }
 
-.prose ul {
+.listBlock,
+.codeBlock {
+  background: color-mix(in srgb, var(--landing-surface) 72%, transparent);
+  border: 1px solid var(--landing-border);
+  border-radius: 0.75rem;
+  padding: 1rem 1.125rem;
+}
+
+.list {
   display: grid;
   gap: 0.5rem;
   list-style: none;
@@ -45,7 +81,7 @@
 }
 
 .prose li::before {
-  background: var(--landing-border);
+  background: var(--landing-muted);
   border-radius: 999px;
   content: "";
   height: 0.375rem;
@@ -56,9 +92,8 @@
 }
 
 .code {
-  background: var(--landing-surface);
-  border: 1px solid var(--landing-border);
-  border-radius: 0.625rem;
+  margin: 0;
+  max-height: 22rem;
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.8125rem;
   line-height: 1.6;
@@ -68,11 +103,16 @@
 }
 
 .comparison {
+  background: color-mix(in srgb, var(--landing-surface) 72%, transparent);
   border: 1px solid var(--landing-border);
   border-radius: 0.75rem;
   padding: 1.25rem 1.5rem;
 }
 
-.comparison + .comparison {
+.bestFor {
+  border-top: 1px solid var(--landing-border);
+  font-size: 0.875rem;
+  line-height: 1.6;
   margin-top: 1rem;
+  padding-top: 0.875rem;
 }
