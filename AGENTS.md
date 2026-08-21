@@ -10,3 +10,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - For type checks that don't touch `.next`, use `npx tsc --noEmit`.
 - Run `npm run build` only once as a final gate right before creating or updating a pull request.
 
+## Session cleanup
+
+- At the end of each session, stop any dev server started during the session (e.g. `kill` the PIDs on port 3000) so it doesn't linger in the background.
+
