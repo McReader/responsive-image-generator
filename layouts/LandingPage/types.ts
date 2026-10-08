@@ -50,7 +50,6 @@ export type LandingPageEntry = {
   slug: string;
   tags?: string[];
   content: LandingPageContent;
-  metadata: Metadata;
 };
 
 export type HubPageContent = {
