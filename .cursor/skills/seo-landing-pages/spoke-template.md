@@ -28,17 +28,8 @@ export const exampleContent: LandingPageContent = {
     {
       id: "section-id",
       heading: "Educational H2 targeting a related long-tail phrase",
-      blocks: [
-        { type: "paragraph", text: "..." },
-        { type: "list", title: "Benefits:", items: ["...", "..."] },
-        { type: "code", title: "Example output", content: "..." },
-        {
-          type: "comparison",
-          title: "Format A",
-          advantages: ["..."],
-          bestFor: "...",
-        },
-      ],
+      description:
+        "Two or three sentences of educational prose covering the section's key points.",
     },
     privacySection,
   ],
@@ -63,18 +54,19 @@ export const exampleMetadata = {
 };
 ```
 
-## Section types (`ContentBlock`)
+## Section shape (`LandingSectionData`)
 
-| Type | Use for |
-|------|---------|
-| `paragraph` | Explanatory prose |
-| `list` | Benefits, features, outputs |
-| `code` | Example filenames, HTML snippets, CLI-style output |
-| `comparison` | Format or approach comparisons (WebP vs JPEG, etc.) |
+Each section renders as a `Banner` with a heading and a single prose description.
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| `id` | No | Anchor target for secondary CTAs (`href: "#section-id"`). |
+| `heading` | Yes | Educational H2. |
+| `description` | Yes | 1–3 sentences of prose; lists, code, and comparisons are written out in prose. |
 
 ## Recommended sections by spoke type
 
-**Responsive / srcset spokes:** why responsive images, what the tool generates (with code examples), privacy, format comparison.
+**Responsive / srcset spokes:** why responsive images, what the tool generates (with srcset markup examples), privacy, format comparison.
 
 **Format conversion spokes (WebP, AVIF):** format benefits, browser support, when to use vs fallback, privacy.
 

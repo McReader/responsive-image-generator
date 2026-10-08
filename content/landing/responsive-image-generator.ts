@@ -17,99 +17,21 @@ export const responsiveImageGeneratorContent: LandingPageContent = {
     {
       id: "why-responsive-images",
       heading: "Why use responsive images?",
-      blocks: [
-        {
-          type: "paragraph",
-          text: "Responsive images let browsers download the most appropriate file for each visitor's screen size and connection.",
-        },
-        {
-          type: "paragraph",
-          text: "Instead of serving a large desktop image to every device, you provide multiple sizes and let the browser choose the best option.",
-        },
-        {
-          type: "list",
-          title: "Benefits include:",
-          items: [
-            "Faster page loads",
-            "Reduced bandwidth usage",
-            "Better mobile experience",
-            "Improved SEO performance",
-            "Better Core Web Vitals scores",
-          ],
-        },
-      ],
+      description:
+        "Responsive images let browsers download the most appropriate file for each visitor's screen size and connection. Instead of serving one large desktop image to every device, you provide multiple sizes and let the browser choose the best option — resulting in faster page loads, less bandwidth, a better mobile experience, and stronger Core Web Vitals.",
     },
     {
       id: "what-this-tool-generates",
       heading: "What this tool generates",
-      blocks: [
-        {
-          type: "paragraph",
-          text: "Upload one or more images and automatically generate:",
-        },
-        {
-          type: "list",
-          items: [
-            "Multiple responsive breakpoints",
-            "WebP and JPEG versions",
-            "A downloadable ZIP archive",
-            "Ready-to-use srcset markup",
-            "Responsive HTML examples",
-          ],
-        },
-        {
-          type: "files",
-          title: "Example outputs",
-          items: [
-            { name: "hero-320.webp", label: "Mobile", size: "7 KB" },
-            { name: "hero-640.webp", label: "Tablet", size: "24 KB" },
-            { name: "hero-1024.webp", label: "Laptop", size: "58 KB" },
-            { name: "hero-1920.webp", label: "Desktop", size: "158 KB" },
-          ],
-        },
-        {
-          type: "code",
-          title: "Generated markup",
-          content: `<img
-  src="hero-640.webp"
-  srcset="
-    hero-320.webp 320w,
-    hero-640.webp 640w,
-    hero-1024.webp 1024w,
-    hero-1920.webp 1920w
-  "
-  sizes="100vw"
-  alt="Hero image"
-/>`,
-        },
-      ],
+      description:
+        "Upload one or more images and this tool generates responsive breakpoints, WebP and JPEG versions, a downloadable ZIP archive, and ready-to-use srcset markup. Example outputs range from a 7 KB mobile hero image to a 158 KB desktop version.",
     },
     privacySection,
     {
       id: "webp-vs-jpeg",
       heading: "WebP vs JPEG for responsive images",
-      blocks: [
-        {
-          type: "comparison",
-          title: "WebP",
-          advantages: [
-            "Smaller file sizes",
-            "Better compression",
-            "Widely supported by modern browsers",
-          ],
-          bestFor: "Most website images, marketing pages, blogs, and e-commerce sites.",
-        },
-        {
-          type: "comparison",
-          title: "JPEG",
-          advantages: ["Universal compatibility", "Simple workflow"],
-          bestFor: "Legacy browser support and existing image pipelines.",
-        },
-        {
-          type: "paragraph",
-          text: "For most websites, WebP should be your default format.",
-        },
-      ],
+      description:
+        "WebP offers smaller files and better compression, and is widely supported by modern browsers — making it the default choice for most website images, marketing pages, blogs, and e-commerce sites. JPEG offers universal compatibility and a simple workflow for legacy browsers and existing pipelines. For most websites, WebP should be your default format.",
     },
   ],
   cta: {

@@ -1,4 +1,4 @@
-import type {FaqItem, LandingFeature} from "@/layouts/LandingPage/types";
+import type {FaqItem, LandingFeature, LandingSectionData} from "@/layouts/LandingPage/types";
 
 export const defaultFaqItems: FaqItem[] = [
   {
@@ -42,27 +42,9 @@ export const coreToolFeatures: LandingFeature[] = [
   },
 ];
 
-export const privacySection = {
+export const privacySection: LandingSectionData = {
   id: "privacy",
   heading: "Privacy-first image processing",
-  blocks: [
-    {
-      type: "paragraph" as const,
-      text: "Unlike many online image tools, this generator performs all processing directly in your browser.",
-    },
-    {
-      type: "list" as const,
-      title: "Your images:",
-      items: [
-        "Are never uploaded",
-        "Never leave your device",
-        "Are not stored on servers",
-        "Can be processed offline after the page loads",
-      ],
-    },
-    {
-      type: "paragraph" as const,
-      text: "This makes the tool suitable for private, commercial, and client work.",
-    },
-  ],
+  description:
+    "Unlike many online image tools, this generator performs all processing directly in your browser. Your images are never uploaded, never leave your device, and are never stored on a server — which makes the tool suitable for private, commercial, and client work.",
 };

@@ -11,23 +11,10 @@ export type LandingFeature = {
   description: string;
 };
 
-export type OutputFile = {
-  name: string;
-  label?: string;
-  size?: string;
-};
-
-export type ContentBlock =
-  | { type: "paragraph"; text: string }
-  | { type: "list"; title?: string; items: string[] }
-  | { type: "code"; title: string; content: string }
-  | { type: "comparison"; title: string; advantages: string[]; bestFor: string }
-  | { type: "files"; title?: string; items: OutputFile[] };
-
-export type ContentSectionData = {
+export type LandingSectionData = {
   id?: string;
   heading: string;
-  blocks: ContentBlock[];
+  description: string;
 };
 
 export type FaqItem = {
@@ -47,7 +34,7 @@ export type LandingPageContent = {
     items: LandingFeature[];
   };
   toolDefaults?: Partial<GeneratorSettings>;
-  sections: ContentSectionData[];
+  sections: LandingSectionData[];
   cta?: {
     heading: string;
     description: string;

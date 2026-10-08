@@ -7,18 +7,34 @@ export type CtaLink = {
   href: string;
 };
 
+type BannerAlign = "left" | "center" | "right";
+
 type BannerProps = {
   variant?: "hero" | "cta";
+  align?: BannerAlign;
   eyebrow?: string;
   heading: string;
   description: string;
-  primaryCta: CtaLink;
+  primaryCta?: CtaLink;
   secondaryCta?: CtaLink;
   footer?: ReactNode;
 };
 
+const alignTextClass: Record<BannerAlign, string> = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+};
+
+const alignCtaClass: Record<BannerAlign, string> = {
+  left: "justify-start",
+  center: "justify-center",
+  right: "justify-end",
+};
+
 export function Banner({
   variant = "hero",
+  align = "center",
   eyebrow,
   heading,
   description,
@@ -31,7 +47,7 @@ export function Banner({
   const enter = isHero ? styles.enter : "";
 
   return (
-    <div className="mx-auto max-w-2xl text-center">
+    <div className={`mx-auto max-w-2xl ${alignTextClass[align]}`}>
       {eyebrow ? (
         <p
           className={`text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400 ${enter}`}
@@ -56,18 +72,22 @@ export function Banner({
         {description}
       </p>
 
-      <div
-        className={`mt-8 flex flex-wrap items-center justify-center gap-3 ${enter} ${styles.enterDelay3}`}
-      >
-        <Link className="button primary" href={primaryCta.href}>
-          {primaryCta.label}
-        </Link>
-        {secondaryCta ? (
-          <Link className="button outlined" href={secondaryCta.href}>
-            {secondaryCta.label}
-          </Link>
-        ) : null}
-      </div>
+      {primaryCta || secondaryCta ? (
+        <div
+          className={`mt-8 flex flex-wrap items-center gap-3 ${alignCtaClass[align]} ${enter} ${styles.enterDelay3}`}
+        >
+          {primaryCta ? (
+            <Link className="button primary" href={primaryCta.href}>
+              {primaryCta.label}
+            </Link>
+          ) : null}
+          {secondaryCta ? (
+            <Link className="button outlined" href={secondaryCta.href}>
+              {secondaryCta.label}
+            </Link>
+          ) : null}
+        </div>
+      ) : null}
 
       {footer}
     </div>
