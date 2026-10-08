@@ -12,6 +12,7 @@ import {
 } from "@/content/landing/responsive-image-generator";
 import {CodeSnippet} from "@/components/CodeSnippet";
 import {OutputFiles} from "@/components/OutputFiles";
+import {FormatComparison} from "@/components/FormatComparison";
 
 export const metadata: Metadata = {
   title: "Responsive Image Generator | Create srcset Images in Your Browser",
@@ -137,18 +138,9 @@ export default function ResponsiveImageGeneratorPage() {
           </div>
         </section>
 
-        <section
-          key={sections[2].id ?? sections[2].heading}
-          id={sections[2].id}
-          className="py-16"
-        >
+        <section id="format-comparison" className="py-16">
           <div className="container">
-            <Banner
-              variant="cta"
-              align="left"
-              heading={sections[2].heading}
-              description={sections[2].description}
-            />
+            <FormatComparison />
           </div>
         </section>
 

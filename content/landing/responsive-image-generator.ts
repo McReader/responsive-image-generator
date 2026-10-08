@@ -21,12 +21,6 @@ export const responsiveImageGeneratorContent: LandingPageContent = {
         "Responsive images let browsers download the most appropriate file for each visitor's screen size and connection. Instead of serving one large desktop image to every device, you provide multiple sizes and let the browser choose the best option — resulting in faster page loads, less bandwidth, a better mobile experience, and stronger Core Web Vitals.",
     },
     privacySection,
-    {
-      id: "webp-vs-jpeg",
-      heading: "WebP vs JPEG for responsive images",
-      description:
-        "WebP offers smaller files and better compression, and is widely supported by modern browsers — making it the default choice for most website images, marketing pages, blogs, and e-commerce sites. JPEG offers universal compatibility and a simple workflow for legacy browsers and existing pipelines. For most websites, WebP should be your default format.",
-    },
   ],
   cta: {
     heading: "Responsive images improve SEO and performance",
